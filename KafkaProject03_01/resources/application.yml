@@ -1,0 +1,31 @@
+daejin:
+  isProducer: true
+server:
+  port: 8080
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: 
+    url: 
+    username: 
+    password: 
+  mvc:
+    view: 
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: time-test01
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
