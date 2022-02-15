@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.tmax.tibero.jdbc.TbDriver
+    password: tester
+    url: jdbc:tibero:thin:@10.47.39.125:8629:DB_D_GMD
+    username: tester
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: latest
+      group-id: time-test01
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 1000
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    template:
+      topic: timetest03
